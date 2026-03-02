@@ -1,0 +1,18 @@
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        iterator = head
+        node_list = set()
+
+        if head == None: return False
+
+        while iterator.next:
+            if iterator in node_list:
+                return True
+            else:
+                node_list.add(iterator)
+
+            iterator = iterator.next
+        
+        return False
+
+# NOTES: this is a two-pointer problem; have two iterators, one that moves faster than the other, and check if they connect
